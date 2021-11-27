@@ -25,15 +25,19 @@ const Main = styled.main`
   margin: 0 auto;
 `
 
-function Layout(props: BaseComponentProps) {
-  const { children } = props
+interface LayoutProps extends BaseComponentProps {
+  title: string
+}
+
+function Layout(props: LayoutProps) {
+  const { children, title } = props
 
   return (
     <Background className="Background">
       <GlobalStyle />
       <Navbar />
       <Main>
-        <Title>Joakim Petersson</Title>
+        <Title>{title}</Title>
         {children}
       </Main>
     </Background>
